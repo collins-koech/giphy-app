@@ -1,0 +1,18 @@
+<div>
+    <h1 class="text-center">So you need the perfect gif?</h1>
+    <h4>Look it up and hit enter to search.</h4>
+
+    <form class="form-inline" ng-submit="ctrl.getGifsforTag(ctrl.searchQuery)">
+        <div class="form-group">
+            <label for="search">Search</label>
+            <input ng-model="ctrl.searchQuery" typeahead="tag for tag in ctrl.getTags | filter:ctrl.searchQuery | limitTo:8" type="text" class="form-control">
+        </div>
+    </form>
+
+    <div class="row" ng-repeat="gif in ctrl.giphyListObject.gifs" ng-click="ctrl.getDetails(gif.id)">
+        <div class="col-xs-12 text-center giphy">
+            <img ng-src="{{gif.url}}">
+        </div>
+    </div>
+
+</div>
